@@ -57,7 +57,11 @@
     </script>
     <script type="text/javascript">
         $.cachedScript("http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete")
-
+        $('#DOB').datepicker({
+            dateFormat: 'dd-mm-yy'
+        }).on("show", function () {
+            $(this).val(new Date()).datepicker('update');
+        });
     </script>
 
 }
