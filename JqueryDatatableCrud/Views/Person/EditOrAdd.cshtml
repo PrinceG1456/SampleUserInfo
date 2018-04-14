@@ -1,0 +1,61 @@
+﻿@model JqueryDatatableCrud.Models.Person
+@{
+    ViewBag.Title = "EditOrAdd";
+    Layout = null;
+}
+
+@using (Html.BeginForm("EditOrAdd", "Person", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.id)
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Mobile, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Mobile)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Age, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Age)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DOB, new { @class = "control-label" })
+        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.DOB)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Location, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", autocomplete = false } })
+        @Html.ValidationMessageFor(model => model.Location)
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn" />
+    </div>
+    <script type="text/javascript">
+        function Autocomplete() {
+            var input = document.getElementById('Location');
+            if (input != undefined)
+                var places = new google.maps.places.Autocomplete(input);
+
+        };
+    </script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete"></script>
+
+}
+
