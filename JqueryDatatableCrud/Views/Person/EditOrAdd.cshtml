@@ -9,37 +9,37 @@
     @Html.HiddenFor(model => model.id)
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
-        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Enter First Name" } })
         @Html.ValidationMessageFor(model => model.FirstName)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
-        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Enter Last Name" } })
         @Html.ValidationMessageFor(model => model.LastName)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Email, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Enter Email Address " } })
         @Html.ValidationMessageFor(model => model.Email)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Mobile, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Enter Mobile Number " } })
         @Html.ValidationMessageFor(model => model.Mobile)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Age, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Enter Age" } })
         @Html.ValidationMessageFor(model => model.Age)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.DOB, new { @class = "control-label" })
-        @Html.EditorFor(model => model.DOB, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control", @type = "Text" } })
+        @Html.EditorFor(model => model.DOB, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control", @type = "Text", @Placeholder = "dd/mm/yyyy" } })
         @Html.ValidationMessageFor(model => model.DOB)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Location, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", autocomplete = false, novalidate = true } })
+        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", autocomplete = false, novalidate = true, @Placeholder = "Enter Location" } })
         @Html.ValidationMessageFor(model => model.Location)
     </div>
 
@@ -55,37 +55,8 @@
 
         };
     </script>
-    @*<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete"></script>*@
     <script type="text/javascript">
-        $(document).ready(function () {
-            $.getScript("http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete")
-               .done(function (script, textStatus) {
-                   console.log(textStatus + "hrllo");
-               }).fail(function (jqxhr, settings, exception) {
-                   console.log("Ajax Error");
-               })
-            $('#DOB').datepicker({
-                dateFormat: 'dd-mm-yy'
-            }).on("show", function () {
-                $(this).val(new Date()).datepicker('update');
-            });
-
-        })
-        //$.cachedScript = function (url, options) {
-        //    if (!isFirstload(Cached)) {
-        //        options = $.extend(options || {}, {
-        //            dataType: "script",
-        //            cache: true,
-        //            url: url
-        //        });
-        //        return $.ajax(options);
-        //    }
-        //    else
-        //        return;
-        //}
-        //var Cached = $.cachedScript("http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete").done(function (script, Status) {
-        //    console.log(status);
-        //});
+        $.cachedScript("http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCssoPVU3H__2rIpOVeszARJAMQpxLAC-A&callback=Autocomplete")
 
     </script>
 
