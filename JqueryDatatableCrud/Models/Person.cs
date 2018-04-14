@@ -25,7 +25,7 @@ namespace JqueryDatatableCrud.Models
         public Nullable<byte> Age { get; set; }
         [Required(ErrorMessage = "This Field Required")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-mm-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DOB { get; set; }
         [Required(ErrorMessage = "This Field Required")]
         public string Location { get; set; }
