@@ -19,6 +19,7 @@ namespace JqueryDatatableCrud.Models
         public string Email { get; set; }
         [Required(ErrorMessage = "This Field Required")]
         [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public Nullable<decimal> Mobile { get; set; }
         [Required(ErrorMessage = "This Field Required")]
         [Range(1, 100)]
